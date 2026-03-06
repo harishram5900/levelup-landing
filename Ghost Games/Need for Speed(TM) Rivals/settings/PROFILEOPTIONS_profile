@@ -1,0 +1,29 @@
+GstAudio.Dynamics 1.000000
+GstAudio.MusicVolume 1.000000
+GstAudio.Playlist -1
+GstAudio.ShuffleMusic 0
+GstAudio.SoundEffectVolume 1.000000
+GstAudio.Speakers 0
+GstAudio.SpeechVolume 1.000000
+GstAudio.VoiceChatDevice 0
+GstAudio.VoipEnabled 1
+GstRender.AmbientOcclusion 2
+GstRender.Brightness 0.500000
+GstRender.EffectsQuality 3
+GstRender.FullscreenEnabled 1
+GstRender.HeadlightShadowsEnabled 1
+GstRender.MeshQuality 1
+GstRender.MotionBlurEnabled 1
+GstRender.ReflectionQuality 3
+GstRender.ResolutionHeight 2160
+GstRender.ResolutionWidth 3840
+GstRender.ScreenSafeAreaHasBeenSet 1
+GstRender.ScreenSafeAreaHeight 0.900000
+GstRender.ScreenSafeAreaWidth 0.900000
+GstRender.ShadowQuality 3
+GstRender.TerrainQuality 1
+GstRender.TextureQuality 3
+GstRender.UndergrowthQuality 1
+
+
+
