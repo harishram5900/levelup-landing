@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import HeroSplit from "@/components/HeroSplit"; 
 import Ecosystem from "@/components/Ecosystem";
 import ProductCards from "@/components/ProductCards";
 import FeaturesGrid from "@/components/FeaturesGrid";
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-levelup-black">
       <Navbar />
-      <Hero />
+      <HeroSplit />
       <Ecosystem />
       <ProductCards />
       <FeaturesGrid />
