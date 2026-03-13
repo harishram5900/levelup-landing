@@ -48,7 +48,7 @@ export default function ProductCards() {
             transition={{ duration: 0.5 }}
             className="group"
           >
-            <Link href="#waitlist" className="block h-full">
+            <Link href="/creators" className="block h-full">
               <div className="relative h-full rounded-2xl overflow-hidden glass-panel border-levelup-blue/25 hover:border-levelup-blue/40 shadow-panel hover:shadow-panel-hover transition-all duration-300 p-8 lg:p-10">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-levelup-blue/10 rounded-full blur-3xl pointer-events-none" />
                 <div className="relative flex items-center gap-3">
@@ -70,7 +70,7 @@ export default function ProductCards() {
                   ))}
                 </ul>
                 <span className="mt-8 inline-flex items-center gap-1.5 text-[13px] font-medium text-levelup-gold group-hover:gap-2 transition-all">
-                  Get early access
+                  Open LevelUp Creators
                   <span className="text-levelup-gold-light">→</span>
                 </span>
               </div>

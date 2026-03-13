@@ -58,15 +58,20 @@ export default function HeroSplit() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-7 flex flex-col gap-3 sm:flex-row"
+          className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center"
         >
           <a
-            href="#waitlist"
+            href="/creators"
             className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-yellow-300 to-amber-500 px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-[0_0_26px_rgba(251,191,36,0.22)] transition hover:brightness-105 md:text-base"
+          >
+            Open LevelUp Creators
+          </a>
+          <a
+            href="#waitlist"
+            className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-xl transition hover:border-white/30 md:text-base"
           >
             Join the Waitlist
           </a>
-
           <a
             href="#products"
             className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-xl transition hover:border-white/30 md:text-base"

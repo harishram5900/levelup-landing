@@ -53,6 +53,12 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-2">
             <Link
+              href="/creators"
+              className="btn-secondary py-2 px-4 text-[13px] border-levelup-gold/30 text-levelup-gold hover:border-levelup-gold/50 hover:bg-levelup-gold/10"
+            >
+              LevelUp Creators
+            </Link>
+            <Link
               href="#login"
               className="btn-secondary py-2 px-4 text-[13px]"
             >
@@ -107,6 +113,13 @@ export default function Navbar() {
                 ))}
               </div>
               <div className="mt-6 flex flex-col gap-2">
+                <Link
+                  href="/creators"
+                  className="w-full justify-center py-3 rounded-lg border border-levelup-gold/40 bg-levelup-gold/10 px-5 font-medium text-levelup-gold hover:bg-levelup-gold/20 transition-colors flex items-center"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  LevelUp Creators
+                </Link>
                 <Link
                   href="#login"
                   className="btn-secondary w-full justify-center py-3"
