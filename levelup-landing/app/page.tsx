@@ -1,27 +1,21 @@
-import Navbar from "@/components/Navbar";
-import HeroSplit from "@/components/HeroSplit"; 
-import Ecosystem from "@/components/Ecosystem";
-import ProductCards from "@/components/ProductCards";
-import FeaturesGrid from "@/components/FeaturesGrid";
-import HowItWorks from "@/components/HowItWorks";
-import Reviews from "@/components/Reviews";
-import Team from "@/components/Team";
-import WaitlistSection from "@/components/WaitlistSection";
-import Footer from "@/components/Footer";
+import fs from "node:fs/promises";
+import path from "node:path";
+import LevelupWebsiteRawClient from "@/components/LevelupWebsiteRawClient";
 
-export default function Home() {
-  return (
-    <main className="min-h-screen bg-levelup-black">
-      <Navbar />
-      <HeroSplit />
-      <Ecosystem />
-      <ProductCards />
-      <FeaturesGrid />
-      <HowItWorks />
-      <Reviews />
-      <Team />
-      <WaitlistSection />
-      <Footer />
-    </main>
-  );
+function extractTag(html: string, tagName: "style" | "body") {
+  const re = new RegExp(`<${tagName}[^>]*>([\\s\\S]*?)<\\/${tagName}>`, "i");
+  const m = html.match(re);
+  return m?.[1] ?? "";
+}
+
+export default async function Home() {
+  const filePath = path.join(process.cwd(), "levelup-website.html");
+  const html = await fs.readFile(filePath, "utf8");
+
+  const rawCss = extractTag(html, "style");
+  const bodyInner = extractTag(html, "body");
+
+  const css = `@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');\n${rawCss}`;
+
+  return <LevelupWebsiteRawClient css={css} bodyHtml={bodyInner} />;
 }
