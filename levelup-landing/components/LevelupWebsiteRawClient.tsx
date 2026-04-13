@@ -120,6 +120,69 @@ export default function LevelupWebsiteRawClient({ css, bodyHtml }: Props) {
     };
     glowCards.forEach((c) => c.addEventListener("mousemove", onCardMove));
 
+    // Stats motion (slow left -> right marquee)
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const statsBand = document.querySelector(".stats-band") as HTMLElement | null;
+    const statsGrid = statsBand?.querySelector(".stats-grid") as HTMLElement | null;
+
+    // Keep the exact stat blocks/layout, but move the whole row horizontally.
+    // We wrap+duplicate the grid to create an infinite track.
+    let createdTrack: HTMLElement | null = null;
+    const isSmallScreen =
+      typeof window !== "undefined" ? window.matchMedia("(max-width: 700px)").matches : false;
+
+    if (statsBand && statsGrid && !prefersReducedMotion && !isSmallScreen) {
+      const track = document.createElement("div");
+      track.className = "stats-track";
+      track.style.display = "flex";
+      track.style.gap = "80px";
+      track.style.width = "max-content";
+      track.style.animationDuration = "38s"; // slower than the marquee above
+      track.style.animationTimingFunction = "linear";
+      track.style.animationIterationCount = "infinite";
+      track.style.animationDirection = "reverse"; // left -> right
+
+      // preserve existing max-width centering by moving it onto a shell wrapper
+      const shell = document.createElement("div");
+      shell.style.maxWidth = "900px";
+      shell.style.margin = "0 auto";
+      shell.style.overflow = "hidden";
+
+      // Ensure the band clips the moving content (premium feel)
+      statsBand.style.overflow = "hidden";
+
+      const gridA = statsGrid;
+      const gridB = statsGrid.cloneNode(true) as HTMLElement;
+
+      // A CSS grid inside a flex "ticker" can collapse to min-content width.
+      // Force a stable width equal to the shell width so the stats stay visible.
+      // (shell isn't in DOM yet, so insert it before measuring)
+      // Remove the original grid from band, then mount into track
+      gridA.remove();
+      // Insert the track before the footnote line
+      const footnote = statsBand.querySelector('div[style*="margin-top:20px"]');
+      if (footnote) {
+        statsBand.insertBefore(shell, footnote);
+      } else {
+        statsBand.insertBefore(shell, statsBand.firstChild);
+      }
+
+      const shellWidth = Math.max(320, shell.getBoundingClientRect().width || 900);
+      [gridA, gridB].forEach((g) => {
+        g.style.width = `${shellWidth}px`;
+        g.style.flex = "0 0 auto";
+      });
+
+      track.appendChild(gridA);
+      track.appendChild(gridB);
+      shell.appendChild(track);
+      createdTrack = track;
+    }
+
     // Waitlist submit -> keep backend integration working
     async function submitWaitlist() {
       const nameEl = document.getElementById("wl-name") as HTMLInputElement | null;
@@ -232,6 +295,8 @@ export default function LevelupWebsiteRawClient({ css, bodyHtml }: Props) {
       particles.forEach((p) => p.remove());
       observer.disconnect();
       glowCards.forEach((c) => c.removeEventListener("mousemove", onCardMove));
+
+      createdTrack?.parentElement?.remove();
 
       if (raf) window.cancelAnimationFrame(raf);
       try {
