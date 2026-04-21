@@ -5,6 +5,18 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
+    name: "Yash C",
+    role: "Creator",
+    content:
+      "LevelUp changed my life — I would highly recommend it.",
+  },
+  {
+    name: "Aradhanaa",
+    role: "Student & creator",
+    content:
+      "Using LevelUp made balancing academics and extracurriculars so much better. Highly recommend using it.",
+  },
+  {
     name: "Student Founder",
     role: "Building in public",
     content:

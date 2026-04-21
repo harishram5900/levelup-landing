@@ -89,6 +89,22 @@ export default function HeroSplit() {
           Early access for creators, student founders, and ambitious builders
         </motion.p>
 
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.65 }}
+          className="mt-6 flex flex-wrap items-center justify-center gap-3"
+        >
+          <div className="rounded-full border border-white/10 bg-black/40 px-4 py-2 backdrop-blur-xl">
+            <span className="text-levelup-gold font-semibold">3450+</span>{" "}
+            <span className="text-white/60 text-sm">users</span>
+          </div>
+          <div className="rounded-full border border-white/10 bg-black/40 px-4 py-2 backdrop-blur-xl">
+            <span className="text-levelup-gold font-semibold">31+</span>{" "}
+            <span className="text-white/60 text-sm">countries</span>
+          </div>
+        </motion.div>
+
         <div className="relative mt-14 flex h-40 w-full items-center justify-center md:mt-16 md:h-52">
           <motion.div
             initial={{ opacity: 0, scale: 0.88 }}
