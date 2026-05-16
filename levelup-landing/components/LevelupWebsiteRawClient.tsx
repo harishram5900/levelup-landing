@@ -42,7 +42,7 @@ export default function LevelupWebsiteRawClient({ css, bodyHtml }: Props) {
 
     const hoverTargets = Array.from(
       document.querySelectorAll(
-        'a,button,[data-card],.nav-cta,.btn-primary,.btn-secondary,.plat-card,.feature-card'
+        'a,button,[data-card],.nav-cta,.nav-cta-secondary,.btn-primary,.btn-secondary,.plat-card,.feature-card'
       )
     );
     const onEnter = () => {

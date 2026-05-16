@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function CreatorsPage() {
-  redirect("/creators/dashboard");
+  redirect("/levelup-creators");
 }

@@ -96,7 +96,7 @@ export default function HeroSplit() {
           className="mt-6 flex flex-wrap items-center justify-center gap-3"
         >
           <div className="rounded-full border border-white/10 bg-black/40 px-4 py-2 backdrop-blur-xl">
-            <span className="text-levelup-gold font-semibold">3450+</span>{" "}
+            <span className="text-levelup-gold font-semibold">20k+</span>{" "}
             <span className="text-white/60 text-sm">users</span>
           </div>
           <div className="rounded-full border border-white/10 bg-black/40 px-4 py-2 backdrop-blur-xl">
